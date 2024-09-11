@@ -1,11 +1,16 @@
 import askUser from "./askUser.js";
 
-// Aquí tienes un ejemplo de cómo pedir un dato al usuario
-// En la variable age se guardará el dato que el usuario introduzca
-const age = askUser("Enter your age: ");
+const songsTitlesAsked = askUser(
+  "Titulos de las canciones que quieres almacenar:"
+);
+let songsTitles = songsTitlesAsked.split(",");
 
-// Sólo ten en cuenta que el dato que el usuario introduzca siempre será de tipo string
-// Si necesitas que sea de otro tipo, tendrás que convertirlo
+const positionWanted = Number(
+  askUser("¿Que posicion de la lista quieres ver?")
+);
 
-// Borra todo este código menos la línea 1
-// y no borres el archivo askUser.ts, que es el que contiene la función askUser
+if (positionWanted - 1 <= songsTitles.length) {
+  console.log(songsTitles[positionWanted - 1]);
+} else {
+  console.log("El numero de posicion no es correcto!");
+}
